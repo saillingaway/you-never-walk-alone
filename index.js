@@ -1,25 +1,46 @@
 'use strict';
 
 const twilio = require('twilio');
-const config = require('./config.json');
-
 const MessagingResponse = twilio.twiml.MessagingResponse;
 
+const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
+const client = new SecretManagerServiceClient();
+
 const projectId = process.env.GCLOUD_PROJECT;
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+//const authToken = process.env.TWILIO_AUTH_TOKEN;
 const region = 'us-central1';
 
-exports.reply = (req, res) => {
-    let isValid = true;
+exports.helloWorld = (req, res) => {
+    res.send('Hello World');
+};
 
+exports.reply = (req, res) => {
+    // connect to the secret manager
+    let version = undefined | String;
+    function accessSecretVersion() {
+        const [version] = client.accessSecretVersion({
+            name: 'projects/499116149825/secrets/twilio_auth_token/versions/1'
+        });
+        const payload = version.payload.data.toString();
+    }
+    accessSecretVersion();
+
+    let isValid = true;
     // Only validate that requests came from Twilio when the function has been
     // deployed to production.
     if (process.env.NODE_ENV === 'production') {
-        isValid = twilio.validateExpressRequest(req, config.TWILIO_AUTH_TOKEN, {
-            url: `https://${region}-${projectId}.cloudfunctions.net/reply`
-        });
+        isValid = twilio.validateRequest(
+            //process.env.TWILIO_AUTH_TOKEN,
+            payload,
+            req.headers['x-twilio-signature'],
+            `https://${region}-${projectId}.cloudfunctions.net/reply`,
+            req.body
+        );
     }
 
-    // Halt early if the request was not sent from Twilio
+    // Stop early if the request was not sent from Twilio
+    // TODO: add logging
     if (!isValid) {
         res
             .type('text/plain')
@@ -29,13 +50,11 @@ exports.reply = (req, res) => {
         return;
     }
 
-    // Prepare a response to the SMS message
+
     const response = new MessagingResponse();
-
-    // Add text to the response
-    response.message('Hello from Google Cloud Functions!');
-
-    // Send the response
+    response.message('Thanks for using You Never Walk Alone. ' +
+        'Reply with one of the members to get a little encouragement:' +
+        ' yoon, namu, jk, hobi, jin, jimin or tae');
     res
         .status(200)
         .type('text/xml')

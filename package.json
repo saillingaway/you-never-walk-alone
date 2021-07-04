@@ -1,6 +1,15 @@
 {
-  "name": "ynwa_textbot",
+  "name": "ynwa_twilio_textbot",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "description": "You Never Walk Alone bot",
+  "author": "Sophie <sophiemcrouse@gmail.com>",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^1.8.0",
+    "@google-cloud/secret-manager": "^3.7.1",
+    "twilio": "^3.63.1"
+  },
+  "scripts": {
+    "start reply": "functions-framework --target=reply"
+  }
 }

@@ -1,1 +1,6 @@
 config.json
+twilio.env
+gcloud.env.yaml
+.env.yaml
+mocks
+node_modules
