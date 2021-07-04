@@ -24,7 +24,7 @@ Currently you can only ask YNWA for one member, but in the future I plan to impl
 - support for Korean, Japanese, Chinese, and Spanish
 
 ### About BTS 
-BTS's music has a reputation for speaking to all kinds of people's hearts. They deliver songs about loving yourself, grappling with depression and anxiety, examining the magic of everyday encounters, and running after your dreams. This short exerpt from their recent Rolling Stones [article](https://www.rollingstone.com/music/music-features/new-bts-song-2021-worlds-biggest-band-1166441/) describes their global impact quite well.
+BTS's music has a reputation for speaking to all kinds of peoples' hearts. They deliver songs about loving yourself, grappling with depression and anxiety, examining the magic of everyday encounters, and running after your dreams. This short exerpt from their recent Rolling Stones [article](https://www.rollingstone.com/music/music-features/new-bts-song-2021-worlds-biggest-band-1166441/) describes their global impact quite well.
 
 > <i>"In their early days, with their singles “No More Dream” and “N.O.,” BTS wrote directly about the frustrations of South Korean youth, who faced relentless pressure and competition in school and the job market....BTS has since learned that their initial message, along with later lyrics that grapple with identity, self-love, mental health, and much more, had enough wider currency to make them spokesmen for a global generation — literally: They’ve addressed the United Nations General Assembly, twice."</i>
 
