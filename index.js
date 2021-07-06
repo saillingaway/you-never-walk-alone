@@ -1,7 +1,8 @@
 'use strict';
 
-const twilio = require('twilio');
-const MessagingResponse = twilio.twiml.MessagingResponse;
+// const twilio = require('twilio');
+// const MessagingResponse = twilio.twiml.MessagingResponse;
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
 const client = new SecretManagerServiceClient();
@@ -97,23 +98,27 @@ exports.reply = (req, res) => {
 
 exports.send_boys = (req, res) => {
     const response = new MessagingResponse();
-    // console.log("req member: " + req.body.memberName);
+    console.log("req member: req.body.memberName" + req.body.memberName);
     // let msg = {
     //     "quote": "Those who don’t have a dream, it’s okay, it’s okay if you don’t have a dream. You just have to be happy.",
     //     "url": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Hoseok/stars.jpeg"
     // };
     let mbrName = "jungkook";
-    mbrName = req.body.memberName;
+    // mbrName = req.body.memberName;
     let quote = memberData[mbrName]['quote'];
-    response.message(quote);
-
+    let photo = memberData[mbrName]['img'];
+    // response.message(quote);
 
     // response.message('Those who don’t have a dream, it’s okay, it’s okay if you don’t have a dream. You just have to be happy.');
     // response.message.media(photo);
     // message.media('https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Hoseok/stars.jpeg');
+
+    const message = response.message();
+    message.body(quote);
+    message.media(photo);
+
     console.log(response.toString());
     res
-        .status(200)
-        .type('text/xml')
+        .writeHead(200, {'Content-Type': 'text/xml'})
         .end(response.toString());
 };
