@@ -5,3 +5,5 @@ mocks
 node_modules
 twilio.env
 yarn.lock
+data.json
+memberNameMap.json
