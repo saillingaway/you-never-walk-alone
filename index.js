@@ -18,6 +18,8 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const name = 'projects/499116149825/secrets/twilio_auth_token/versions/1';
 const region = 'us-central1';
 let photo = "../mocks/taehyung_img.JPG";
+const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //let memberData = require('data.json');
 
@@ -99,19 +101,27 @@ exports.reply = (req, res) => {
 };
 
 exports.send_boys = (req, res) => {
-    const response = new MessagingResponse();
+    let btsMember;
+    // const response = new MessagingResponse();
+    // send straight to the phone number from here
+    // send regular resp to twilio, then send message from twilio...
+    //console.log("req body: " + req.body);
+    //console.log("req body json: " + req.body.json());
+    ({btsMember} = req.body);
+    //console.log("req name: "+ JSON.stringify(btsMember));
 
-    //const queryObject = url.parse(req.url,true).query;
-    // console.log("queryObject: " + queryObject.toString());
-    console.log("req member: req.query.memberName" + req.query.memberName);
-    console.log("req body: req.body" + req.body.toString());
+    //const data = JSON.parse(req.body);
+    //console.log("data: " + data.toString());
+
+    // console.log("member: "+ data.memberName)
     // let msg = {
     //     "quote": "Those who don’t have a dream, it’s okay, it’s okay if you don’t have a dream. You just have to be happy.",
     //     "url": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Hoseok/stars.jpeg"
     // };
-    let memberName = "jungkook";
-    let quote = memberData[memberName]['quote'];
-    let photo = memberData[memberName]['img'];
+    // let memberName = "jungkook";
+    //
+    // let quote = memberData[memberName]['quote'];
+    // let photo = memberData[memberName]['img'];
     // if (mbrName !== undefined){
     //     let quote = memberData[mbrName]['quote'];
     //     let photo = memberData[mbrName]['img'];
@@ -128,12 +138,68 @@ exports.send_boys = (req, res) => {
     // response.message.media(photo);
     // message.media('https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Hoseok/stars.jpeg');
 
-    const message = response.message();
-    message.body(quote);
-    message.media(photo);
+    // const message = response.message();
+    // message.body(quote);
+    // message.media(photo);
 
-    console.log(response.toString());
-    res
-        .writeHead(200, {'Content-Type': 'text/xml'})
-        .end(response.toString());
+    // console.log(response.toString());
+    // res
+    //     .status(200)
+    //     .json(response)
+    //     .setHeader('Content-Type', 'application/json')
+        // .send(response.toString());
+
+
+    let name;
+    let quote;
+    let testName;
+    let media;
+    console.log("content-type: "+ req.get('content-type'))
+    switch (req.get('content-type')) {
+        // '{"name":"John"}'
+        case 'application/json':
+            ({name} = req.body.memberName);
+            console.log("app/json" + req.body.memberName);
+            console.log({name});
+            break;
+
+        // 'John', stored in a Buffer
+        case 'application/octet-stream':
+            name = req.body.toString(); // Convert buffer to a string
+            console.log("app/octet" + req.body.memberName);
+            console.log({name});
+            break;
+
+        // 'John'
+        case 'text/plain':
+            name = req.body;
+            console.log("txt/plain" + req.body.memberName);
+            console.log({name});
+            break;
+
+        // 'name=John' in the body of a POST request (not the URL)
+        case 'application/x-www-form-urlencoded; charset=utf-8':
+            ({name} = req.body.memberName);
+            testName = req.body.memberName.toString();
+            testName = testName.toLowerCase();
+            console.log("app/x-www: " + req.body.memberName);
+            console.log("member: "+ req.body.memberName);
+            console.log("photo: "+ photo);
+            console.log("{name}: " + {name});
+            console.log("name: " + name);
+            console.log("testName: " + testName);
+            console.log("photo: " + memberData[testName]['img']);
+            //member = req.body.memberName;
+            quote = memberData[testName]['quote'];
+            media = memberData[testName]['img'];
+
+            break;
+    }
+
+    let responseData = {
+        "member": `${testName}`,
+        "quote": `${quote}`,
+        "img_link" : `${media}`
+    }
+    res.status(200).setHeader('Content-Type', 'application/json').send(responseData);
 };

@@ -8,6 +8,7 @@
     "@google-cloud/functions-framework": "^1.8.0",
     "@google-cloud/secret-manager": "^3.7.1",
     "@google-cloud/storage": "^5.8.5",
+    "body-parser": "^1.19.0",
     "twilio": "^3.63.1"
   },
   "scripts": {
