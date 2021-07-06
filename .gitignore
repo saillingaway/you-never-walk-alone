@@ -4,3 +4,4 @@ gcloud.env.yaml
 mocks
 node_modules
 twilio.env
+yarn.lock
