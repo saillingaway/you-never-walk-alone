@@ -29,37 +29,6 @@ function matchMember(memberName) {
     return name;
 }
 
-// let memberData = {
-//     "namjoon": {
-//         "quote": "Life is a sculpture that you cast as you make mistakes and learn from them.",
-//         "img": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Namjoon/heart.JPG"
-//     },
-//     "seokjin": {
-//         "quote": "You worked hard. Keep trying your best.",
-//         "img": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Seokjin/smile.JPG"
-//     },
-//     "yoongi": {
-//         "quote": "Those who don’t have a dream, it’s okay, it’s okay if you don’t have a dream. You just have to be happy.",
-//         "img": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Yoongi/happyYoongi.JPG"
-//     },
-//     "hoseok": {
-//         "quote": "Don't ever make decisions based on fear. Make decisions based on hope and possibility",
-//         "img": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Hoseok/stars.jpeg"
-//     },
-//     "jimin": {
-//         "quote": "Remember there is a person here in Korea, in the city of Seoul, who understands you.",
-//         "img": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Jimin/pinkHeart.JPG"
-//     },
-//     "taehyung": {
-//         "quote": "Don’t be trapped in someone else’s dream.",
-//         "img": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Taehyung/MonstersINC.JPG"
-//     },
-//     "jungkook": {
-//         "quote": "Without anger or sadness, you won’t be able to feel true happiness.",
-//         "img": "https://storage.googleapis.com/you-never-walk-alone/ynwa-BTS/BTS_Jungkook/pillow.JPG"
-//     }
-// }
-
 exports.send_boys = (req, res) => {
     let name;
     let quote;
