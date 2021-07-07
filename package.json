@@ -4,6 +4,10 @@
   "main": "index.js",
   "description": "You Never Walk Alone bot",
   "author": "Sophie <sophiemcrouse@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saillingaway/you-never-walk-alone"
+  },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.8.0",
     "@google-cloud/secret-manager": "^3.7.1",
