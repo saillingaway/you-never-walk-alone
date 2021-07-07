@@ -16,7 +16,18 @@ let photo = "../mocks/taehyung_img.JPG";
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+const memberAliases = require('./memberAliasMap.json');
 let memberData = require('./memberData.json');
+const sinon = require("sinon");
+
+
+// loads memberAliasMap.json as an obj and matches the recieved
+// member nickname to my key for memberData.
+function matchMember(memberName) {
+    let name;
+    name = memberAliases[memberName]
+    return name;
+}
 
 // let memberData = {
 //     "namjoon": {
@@ -56,30 +67,31 @@ exports.send_boys = (req, res) => {
     console.log("content-type: "+ req.get('content-type'))
     switch (req.get('content-type')) {
         // '{"name":"John"}'
-        case 'application/json':
-            ({name} = req.body.memberName);
-            console.log("app/json" + req.body.memberName);
-            console.log({name});
-            break;
-
-        // 'John', stored in a Buffer
-        case 'application/octet-stream':
-            name = req.body.toString(); // Convert buffer to a string
-            console.log("app/octet" + req.body.memberName);
-            console.log({name});
-            break;
-
-        // 'John'
-        case 'text/plain':
-            name = req.body;
-            console.log("txt/plain" + req.body.memberName);
-            console.log({name});
-            break;
+        // case 'application/json':
+        //     ({name} = req.body.memberName);
+        //     console.log("app/json" + req.body.memberName);
+        //     console.log({name});
+        //     break;
+        //
+        // // 'John', stored in a Buffer
+        // case 'application/octet-stream':
+        //     name = req.body.toString(); // Convert buffer to a string
+        //     console.log("app/octet" + req.body.memberName);
+        //     console.log({name});
+        //     break;
+        //
+        // // 'John'
+        // case 'text/plain':
+        //     name = req.body;
+        //     console.log("txt/plain" + req.body.memberName);
+        //     console.log({name});
+        //     break;
 
         // 'name=John' in the body of a POST request (not the URL)
         case 'application/x-www-form-urlencoded; charset=utf-8':
             name = req.body.memberName.toString();
             name = name.toLowerCase();
+            name = matchMember(name);
             // console.log("app/x-www: " + req.body.memberName);
             // console.log("member: "+ req.body.memberName);
             // console.log("photo: "+ photo);
@@ -99,3 +111,5 @@ exports.send_boys = (req, res) => {
     }
     res.status(200).setHeader('Content-Type', 'application/json').send(responseData);
 };
+
+module.exports = { matchMember };
