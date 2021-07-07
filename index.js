@@ -13,8 +13,6 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const name = 'projects/499116149825/secrets/twilio_auth_token/versions/1';
 const region = 'us-central1';
 let photo = "../mocks/taehyung_img.JPG";
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const memberAliases = require('./memberAliasMap.json');
 let memberData = require('./memberData.json');
