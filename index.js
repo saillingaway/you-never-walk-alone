@@ -31,46 +31,15 @@ exports.send_boys = (req, res) => {
     let name;
     let quote;
     let media;
-    console.log("content-type: "+ req.get('content-type'))
-    switch (req.get('content-type')) {
-        // '{"name":"John"}'
-        // case 'application/json':
-        //     ({name} = req.body.memberName);
-        //     console.log("app/json" + req.body.memberName);
-        //     console.log({name});
-        //     break;
-        //
-        // // 'John', stored in a Buffer
-        // case 'application/octet-stream':
-        //     name = req.body.toString(); // Convert buffer to a string
-        //     console.log("app/octet" + req.body.memberName);
-        //     console.log({name});
-        //     break;
-        //
-        // // 'John'
-        // case 'text/plain':
-        //     name = req.body;
-        //     console.log("txt/plain" + req.body.memberName);
-        //     console.log({name});
-        //     break;
-
-        // 'name=John' in the body of a POST request (not the URL)
-        case 'application/x-www-form-urlencoded; charset=utf-8':
+    //switch (req.get('content-type')) {
+        //case 'application/x-www-form-urlencoded; charset=utf-8':
             name = req.body.memberName.toString();
             name = name.toLowerCase();
             name = matchMember(name);
-            // console.log("app/x-www: " + req.body.memberName);
-            // console.log("member: "+ req.body.memberName);
-            // console.log("photo: "+ photo);
-            // console.log("{name}: " + {name});
-            // console.log("name: " + name);
-            // console.log("testName: " + testName);
-            // console.log("photo: " + memberData[testName]['img']);
-            //member = req.body.memberName;
             quote = memberData[name]['quote'];
             media = memberData[name]['img'];
-            break;
-    }
+            //break;
+    //}
     let responseData = {
         "member": `${name}`,
         "quote": `${quote}`,
