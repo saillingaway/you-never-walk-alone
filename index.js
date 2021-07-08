@@ -16,30 +16,23 @@ let photo = "../mocks/taehyung_img.JPG";
 
 const memberAliases = require('./memberAliasMap.json');
 let memberData = require('./memberData.json');
-const sinon = require("sinon");
-
-
-// loads memberAliasMap.json as an obj and matches the recieved
-// member nickname to my key for memberData.
-function matchMember(memberName) {
-    let name;
-    name = memberAliases[memberName]
-    return name;
-}
+// const sinon = require("sinon");
 
 exports.send_boys = (req, res) => {
     let name;
     let quote;
     let media;
-    //switch (req.get('content-type')) {
-        //case 'application/x-www-form-urlencoded; charset=utf-8':
+    // console.log("content-type: "+ req.get('content-type'))
+    switch (req.get('content-type')) {
+        case 'application/x-www-form-urlencoded; charset=utf-8':
             name = req.body.memberName.toString();
             name = name.toLowerCase();
-            name = matchMember(name);
+            name = memberAliases[memberName];
+            //name = matchMember(name);
             quote = memberData[name]['quote'];
             media = memberData[name]['img'];
-            //break;
-    //}
+            break;
+    }
     let responseData = {
         "member": `${name}`,
         "quote": `${quote}`,
@@ -48,4 +41,4 @@ exports.send_boys = (req, res) => {
     res.status(200).setHeader('Content-Type', 'application/json').send(responseData);
 };
 
-module.exports = { matchMember };
+// module.exports = { matchMember };
