@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const forEach = require('mocha-each');
 
-const {matchMember} = require('../index');
+const {matchMember} = require('..');
 
 let taehyungAlias = ["tae", "v", "tete"];
 
