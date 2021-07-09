@@ -1,27 +1,42 @@
 ## :purple_heart: You Never Walk Alone :purple_heart:
 
 ### About the project
-This SMSbot, nicknamed `You Never Walk Alone` or `YNWA` for short, combines Twilio's SMS services with Google Cloud Functions to allow BTS Army to seamlessly recieve comfort or encouragement from a BTS Member via text message. The name for the project came from from BTS's song "[A Supplementary Story: You Never Walk Alone](https://www.youtube.com/watch?v=6zu-7sgObQ4)", from their 2016 album YOU NEVER WALK ALONE.
+This chatbot, nicknamed `You Never Walk Alone` or `YNWA` for short, combines Twilio's SMS services with Google Cloud Functions to allow BTS Army to seamlessly recieve comfort or encouragement from a BTS Member via text message. The name for the project came from from BTS's song "[A Supplementary Story: You Never Walk Alone](https://www.youtube.com/watch?v=6zu-7sgObQ4)", from their 2016 album YOU NEVER WALK ALONE.
 
 ## How to use YNWA 
 The textbot is easy to use:
-- Text the name of a member to +1(725)226-4826 from your phone
-- The chatbot will respond with a photo and quote by that member 
+- Text `BTS` to `+1(725)226-4826` from your phone.
+- You should receive a welcome message with some instructions. 
+  Following the instructions, respond with the name or nickname of a member (listed below).
+- `Y.N.W.A` will respond with a photo of the member and a quote.
 
-Currently these are how the members can be chosen: (not case sensitive)
+Currently, these are how the members can be chosen:
+- `Namjoon`: `namjoon`, `moni`, `namu`, `rm`
 - `Seokjin`: `seokjin`, `jin`
-- `Namjoon`: `namjoon`, `joon`, `namu` 
-- `Yoongi`: `yoongi`, `yoonfi`, `suga`
-- `Hoseok`: `hoseok`, `hobi`, `jhope`, `j-hope`
+- `Yoongi`: `yoongi`, `yoonfi`, `yoon`,`suga`
+- `Hoseok`: `hoseok`, `hobi`, `jhope`
 - `Jimin`: `jimin`, `mini`
-- `Taehyung`: `taehyung`, `tae`, `v`
-- `Jungkook`: `jk`, `jungkook`, `kookie`, `koo`
+- `Taehyung`: `taehyung`, `tae`, `tete`, `v`
+- `Jungkook`: `jungkook`, `jk`, `koo`
 
-### Features
-Currently you can only ask YNWA for one member, but in the future I plan to implement the following features:
-- support for requesting subunits (ex: `sugakookie`, `minimoni`, `2seok`, etc...)
-- support for voicenotes in WhatsApp
-- support for Korean, Japanese, Chinese, and Spanish
+The options aren't case-sensitive, so you can send `Hobi`, or `JIN` to the chatbot and it should still work. 
+
+Once you respond to the initial message specifying a member, you can continue to ask `Y.N.W.A.` for other members.
+Just reply to the last message sent by `Y.N.W.A.` with another member's name or nickname.
+
+***NOTE -- Currently the chatbot only works with domestic U.S. phone numbers. 
+I am working on a Whatsapp-compatible version that will be available internationally, to anyone with a whatsapp account.***
+
+### Features in Development
+I'm excited to say I'm working on adding these functionalities to the chatbot:
+- Whatsapp compatibility 
+- Support for requesting subunits (ex: `sugakookie`, `minimoni`, `2seok`, etc...)
+- Allowing punctuation (`jungkook!!!`) and phrases (`minimoni please`)  
+  
+### Future Features
+I'm hoping to add these features in the future, please look forward to them!
+- Additional voice-note functionality for WhatsApp
+- Language support for other languages including Korean, Japanese, Chinese, and Spanish
 
 ### About BTS 
 BTS's music has a reputation for speaking to all kinds of peoples' hearts. They deliver songs about loving yourself, grappling with depression and anxiety, examining the magic of everyday encounters, and running after your dreams. This short exerpt from their recent Rolling Stones [article](https://www.rollingstone.com/music/music-features/new-bts-song-2021-worlds-biggest-band-1166441/) describes their global impact quite well.
