@@ -27,7 +27,7 @@ exports.send_boys = (req, res) => {
         case 'application/x-www-form-urlencoded; charset=utf-8':
             name = req.body.memberName.toString();
             name = name.toLowerCase();
-            name = memberAliases[memberName];
+            name = memberAliases[name];
             //name = matchMember(name);
             quote = memberData[name]['quote'];
             media = memberData[name]['img'];
