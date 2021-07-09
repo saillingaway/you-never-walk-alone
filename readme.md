@@ -1,5 +1,3 @@
-Readme
-
 ## :purple_heart: You Never Walk Alone :purple_heart:
 
 ### About the project
