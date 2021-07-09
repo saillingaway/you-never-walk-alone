@@ -16,7 +16,6 @@ let photo = "../mocks/taehyung_img.JPG";
 
 const memberAliases = require('./memberAliasMap.json');
 let memberData = require('./memberData.json');
-// const sinon = require("sinon");
 
 exports.send_boys = (req, res) => {
     let name;
@@ -40,5 +39,3 @@ exports.send_boys = (req, res) => {
     }
     res.status(200).setHeader('Content-Type', 'application/json').send(responseData);
 };
-
-// module.exports = { matchMember };
