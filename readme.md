@@ -9,13 +9,13 @@ The textbot is easy to use:
 - The chatbot will respond with a photo and quote by that member 
 
 Currently these are how the members can be chosen: (not case sensitive)
-- `Seokjin`: `seokjin`, `jin`
-- `Namjoon`: `namjoon`, `joon`, `namu` 
-- `Yoongi`: `yoongi`, `yoonfi`, `suga`
-- `Hoseok`: `hoseok`, `hobi`, `jhope`, `j-hope`
-- `Jimin`: `jimin`, `mini`
-- `Taehyung`: `taehyung`, `tae`, `v`
-- `Jungkook`: `jk`, `jungkook`, `kookie`, `koo`
+- `Seokjin`
+- `Namjoon`
+- `Yoongi`
+- `Hoseok`
+- `Jimin`
+- `Taehyung`
+- `Jungkook`
 
 ### Features
 Currently you can only ask YNWA for one member, but in the future I plan to implement the following features:
