@@ -18,6 +18,9 @@ const memberAliases = require('./memberAliasMap.json');
 let memberData = require('./memberData.json');
 
 exports.send_boys = (req, res) => {
+    console.log('Request Headers:', req.headers);
+    console.log('Request Body:', req.body);
+    console.log('Request Parameters:', req.params);
     let name;
     let quote;
     let media;
