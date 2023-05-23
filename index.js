@@ -21,21 +21,19 @@ exports.send_boys = (req, res) => {
     let name;
     let quote;
     let media;
-    // console.log("content-type: "+ req.get('content-type'))
-    switch (req.get('content-type')) {
-        case 'application/x-www-form-urlencoded; charset=utf-8':
-            name = req.body.memberName.toString();
-            name = name.toLowerCase();
+            name = req.body.memberName.toString().toLowerCase();
             name = memberAliases[name];
-            //name = matchMember(name);
             quote = memberData[name]['quote'];
             media = memberData[name]['img'];
-            break;
+    try {
+        let responseData = {
+            "member": `${name}`,
+            "quote": `${quote}`,
+            "img_link" : `${media}`
+        }
+        res.status(200).setHeader('Content-Type', 'application/json').send(responseData);
+    } catch(error) {
+        console.error('Failed to set responseData: ', error)
+        res.status(500).send('An Internal Server Erorr occurred.')
     }
-    let responseData = {
-        "member": `${name}`,
-        "quote": `${quote}`,
-        "img_link" : `${media}`
-    }
-    res.status(200).setHeader('Content-Type', 'application/json').send(responseData);
 };
