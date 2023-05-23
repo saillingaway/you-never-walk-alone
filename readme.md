@@ -1,5 +1,7 @@
 ## :purple_heart: You Never Walk Alone :purple_heart:
 
+:construction: I've been notified of a bug and will work on fixing it in the near future, Thank you for your understanding. :construction:
+
 ### About the project
 This chatbot, nicknamed `You Never Walk Alone` or `YNWA` for short, combines Twilio's SMS services with Google Cloud Functions to allow BTS Army to seamlessly recieve comfort or encouragement from a BTS Member via text message. The name for the project came from from BTS's song "[A Supplementary Story: You Never Walk Alone](https://www.youtube.com/watch?v=6zu-7sgObQ4)", from their 2016 album YOU NEVER WALK ALONE.
 
@@ -24,19 +26,20 @@ The options aren't case-sensitive, so you can send `Hobi`, or `JIN` to the chatb
 Once you respond to the initial message specifying a member, you can continue to ask `Y.N.W.A.` for other members.
 Just reply to the last message sent by `Y.N.W.A.` with another member's name or nickname.
 
-***NOTE -- Currently the chatbot only works with domestic U.S. phone numbers.
-I am working on a Whatsapp-compatible version that will be available internationally, to anyone with a whatsapp account.***
+***NOTE -- Currently the chatbot only works with domestic, U.S. phone numbers.
+I am working on a Whatsapp-compatible version that will be available internationally to anyone with a whatsapp account.***
 
 ### Features in Development
-I'm excited to say I'm working on adding these functionalities to the chatbot:
+Additional functionalities/features in the pipeline to be added:
 - Whatsapp compatibility
 - Support for requesting subunits (ex: `sugakookie`, `minimoni`, `2seok`, etc...)
 - Allowing punctuation (`jungkook!!!`) and phrases (`minimoni please`)
 
 ### Future Features
 I'm hoping to add these features in the future, please look forward to them!
-- Additional voice-note functionality for WhatsApp
+- ~~Additional voice-note functionality for WhatsApp~~ **on hold until further notice**
 - Language support for other languages including Korean, Japanese, Chinese, and Spanish
+- Twitter Integration to source photos and quotes from well known accounts
 
 ### About BTS
 BTS's music has a reputation for speaking to all kinds of peoples' hearts. They deliver songs about loving yourself, grappling with depression and anxiety, examining the magic of everyday encounters, and running after your dreams. This short exerpt from their recent Rolling Stones [article](https://www.rollingstone.com/music/music-features/new-bts-song-2021-worlds-biggest-band-1166441/) describes their global impact quite well.
